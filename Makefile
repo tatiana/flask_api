@@ -29,7 +29,7 @@ pep8_tests:
 
 lint:
 	@echo "Running pylint"
-	@pylint $(PROJECT_CODE)/$(PROJECT_NAME) --disable=C0301
+	@pylint $(PROJECT_CODE)/$(PROJECT_NAME) --disable=C0301 --disable=C0103
 
 unit: clean pep8 pep8_tests
 	@echo "Running pep8 and unit tests..."
