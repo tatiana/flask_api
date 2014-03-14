@@ -2,12 +2,15 @@
 Venus starter and main loop.
 """
 from flask import Flask
-from venus.resources import numbers
 
+from venus.resources import numbers
+from venus.utils import middleware
 
 app = Flask(__name__)
-# app.debug = True
-app.register_blueprint(numbers.numbers_blueprint)
+app.register_blueprint(numbers.api_numbers)
+
+app.debug = True
+# app.wsgi_app = middleware.LogMiddleware(app)
 
 
 @app.route("/healthcheck")

@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, Response
 
 
-numbers_blueprint = Blueprint('numbers_blueprint', __name__)
+api_numbers = Blueprint('numbers_blueprint', __name__)
 
 
 NUMBER_TRANSLATOR = {
@@ -18,7 +18,7 @@ def translate_number(number):
     return NUMBER_TRANSLATOR[number]
 
 
-@numbers_blueprint.route("/numbers/<int:number>")
+@api_numbers.route("/numbers/<int:number>")
 def route_number(number):
     """
     Provided a integer number, return its name in English.

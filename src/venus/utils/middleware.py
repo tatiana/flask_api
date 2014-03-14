@@ -1,10 +1,11 @@
 import logging
 import sys
 import traceback
+from logging.handlers import WatchedFileHandler
 
 import ujson
 
-from venus.settings import LOG_NAME
+from venus.settings import LOG_NAME, LOG_FILE_PATH
 
 
 HEADER_JSON = {"content-type": "application/json"}
@@ -44,3 +45,8 @@ class LogMiddleware(object):
         error_msg = ''.join(traceback.format_exception(etype, value, tb))
         self.logger.error("Request '%s' [%s]\n%s" % (url, method, error_msg))
         return error_msg
+
+
+handler = WatchedFileHandler(LOG_FILE_PATH)
+logger = get_logger()
+logger.addHandler(handler)
