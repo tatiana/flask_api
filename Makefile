@@ -44,4 +44,4 @@ tests: clean pep8 pep8_tests lint
 	@nosetests -s  --cover-branches --cover-erase --with-coverage --cover-inclusive --cover-package=$(PROJECT_NAME) --tests=$(PROJECT_TEST) --with-xunit
 
 run:
-	@cd $(PROJECT_CODE); python $(PROJECT_NAME)/main.py
+	@cd src; PYTHONPATH=`pwd`:$PYTHONPATH python -m venus.main 
