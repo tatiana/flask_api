@@ -3,8 +3,10 @@ Venus starter and main loop.
 """
 from flask import Flask
 
+from venus import settings
 from venus.resources import numbers
 from venus.utils import middleware
+
 
 app = Flask(__name__)
 app.register_blueprint(numbers.api_numbers)
@@ -22,4 +24,5 @@ def healthcheck():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=settings.DEBUG)
+
