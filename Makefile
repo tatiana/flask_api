@@ -1,3 +1,6 @@
+export CFLAGS=-Qunused-arguments
+export CPPFLAGS=-Qunused-arguments
+
 CWD="`pwd`"
 PROJECT_NAME = venus
 PROJECT_HOME ?= $(CWD)
