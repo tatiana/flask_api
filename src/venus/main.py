@@ -4,12 +4,12 @@ Venus starter and main loop.
 from flask import Flask
 
 from venus import settings
-from venus.resources import numbers
+from venus.resources import movies, numbers
 from venus.utils import middleware
-
 
 app = Flask(__name__)
 app.register_blueprint(numbers.api_numbers)
+app.register_blueprint(movies.api_movies)
 
 app.debug = True
 # app.wsgi_app = middleware.LogMiddleware(app)

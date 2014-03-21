@@ -21,4 +21,4 @@ class MainTestCase(unittest.TestCase):
     def test_number_five(self):
         response = self.app.get('/numbers/5')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.get_data(), b'five')
+        self.assertEqual(response.get_data(), b'undefined')
