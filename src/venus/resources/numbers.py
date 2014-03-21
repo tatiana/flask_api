@@ -7,7 +7,8 @@ api_numbers = Blueprint('numbers_blueprint', __name__)
 NUMBER_TRANSLATOR = {
     1: "one",
     2: "two",
-    3: "three"
+    3: "three",
+    10: "ten"
 }
 
 
@@ -15,7 +16,7 @@ def translate_number(number):
     """
     Provided a integer number, return its name in English.
     """
-    return NUMBER_TRANSLATOR[number]
+    return NUMBER_TRANSLATOR.get(number, "undefined")
 
 
 @api_numbers.route("/numbers/<int:number>")
