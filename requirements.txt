@@ -1,4 +1,3 @@
 Flask==0.10.1
 requests==2.2.1
 stomp.py==4.0.11
-ujson==1.33

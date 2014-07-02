@@ -33,7 +33,7 @@ class LogMiddleware(object):
                 response = self.app.full_dispatch_request()
             except BaseException:
                 error_msg = self._log_error(url, method)
-                error_json = json.dumps({"error": error_msg})
+                error_json = ujson.dumps({"error": error_msg})
                 response = self.app.make_response((error_json, 500, HEADER_JSON))
             else:
                 self.logger.info("Request '%s' [%s]" % (url, method))
